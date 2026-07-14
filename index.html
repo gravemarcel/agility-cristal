@@ -1403,15 +1403,17 @@
                 <div class="contact-form-wrapper">
                     <div class="contact-form-wrapper">
                         <h4 style="margin-bottom:16px;font-weight:600;">Mande sua mensagem</h4>
+                        <form onsubmit="abrirWhatsApp(); return false;">
                         <label for="formNome" style="display:none;">Nome</label>
-                        <input type="text" id="formNome" name="nome" placeholder="Seu nome" aria-label="Seu nome" style="width:100%;padding:14px;margin-bottom:12px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:6px;color:#fff;font-family:'Poppins',sans-serif;font-size:0.9rem;">
+                        <input type="text" id="formNome" name="nome" placeholder="Seu nome" required aria-label="Seu nome" style="width:100%;padding:14px;margin-bottom:12px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:6px;color:#fff;font-family:'Poppins',sans-serif;font-size:0.9rem;">
                         <label for="formWhatsapp" style="display:none;">WhatsApp</label>
                         <input type="tel" id="formWhatsapp" name="whatsapp" placeholder="WhatsApp (com DDD)" aria-label="WhatsApp com DDD" style="width:100%;padding:14px;margin-bottom:12px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:6px;color:#fff;font-family:'Poppins',sans-serif;font-size:0.9rem;">
                         <label for="formMsg" style="display:none;">Mensagem</label>
                         <textarea id="formMsg" name="mensagem" placeholder="Quero agendar uma aula experimental!" rows="3" aria-label="Sua mensagem" style="width:100%;padding:14px;margin-bottom:12px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:6px;color:#fff;font-family:'Poppins',sans-serif;font-size:0.9rem;resize:vertical;min-height:80px;"></textarea>
-                        <button onclick="abrirWhatsApp()" class="btn btn-primary" style="width:100%;justify-content:center;">
+                        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">
                             <i class="fab fa-whatsapp"></i> Enviar pelo WhatsApp
                         </button>
+                        </form>
                     </div>
                 </div>
                 <div class="contact-map">

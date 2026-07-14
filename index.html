@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://gravemarcel.github.io/agility-cristal/">
     <meta name="description" content="Agility Cristal - CrossFit e Treinamento Funcional em Porto Alegre. R. Dr. Campos Velho, 1130 — Cristal, POA. Aceitamos Wellhub e TotalPass.">
     <title>Agility Cristal — CrossFit POA</title>
     <script type="application/ld+json">
@@ -1082,7 +1083,7 @@
 
     <!-- ===== HERO ===== -->
     <section class="hero" id="hero">
-    <div id="main-content"></div>
+    <main id="main-content"></main>
         <div class="container">
             <div class="hero-grid">
                 <div class="hero-content">
@@ -1402,9 +1403,12 @@
                 <div class="contact-form-wrapper">
                     <div class="contact-form-wrapper">
                         <h4 style="margin-bottom:16px;font-weight:600;">Mande sua mensagem</h4>
-                        <input type="text" id="formNome" placeholder="Seu nome" style="width:100%;padding:14px;margin-bottom:12px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:6px;color:#fff;font-family:'Poppins',sans-serif;font-size:0.9rem;">
-                        <input type="tel" id="formWhatsapp" placeholder="WhatsApp (com DDD)" style="width:100%;padding:14px;margin-bottom:12px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:6px;color:#fff;font-family:'Poppins',sans-serif;font-size:0.9rem;">
-                        <textarea id="formMsg" placeholder="Quero agendar uma aula experimental!" rows="3" style="width:100%;padding:14px;margin-bottom:12px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:6px;color:#fff;font-family:'Poppins',sans-serif;font-size:0.9rem;resize:vertical;min-height:80px;"></textarea>
+                        <label for="formNome" style="display:none;">Nome</label>
+                        <input type="text" id="formNome" name="nome" placeholder="Seu nome" aria-label="Seu nome" style="width:100%;padding:14px;margin-bottom:12px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:6px;color:#fff;font-family:'Poppins',sans-serif;font-size:0.9rem;">
+                        <label for="formWhatsapp" style="display:none;">WhatsApp</label>
+                        <input type="tel" id="formWhatsapp" name="whatsapp" placeholder="WhatsApp (com DDD)" aria-label="WhatsApp com DDD" style="width:100%;padding:14px;margin-bottom:12px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:6px;color:#fff;font-family:'Poppins',sans-serif;font-size:0.9rem;">
+                        <label for="formMsg" style="display:none;">Mensagem</label>
+                        <textarea id="formMsg" name="mensagem" placeholder="Quero agendar uma aula experimental!" rows="3" aria-label="Sua mensagem" style="width:100%;padding:14px;margin-bottom:12px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:6px;color:#fff;font-family:'Poppins',sans-serif;font-size:0.9rem;resize:vertical;min-height:80px;"></textarea>
                         <button onclick="abrirWhatsApp()" class="btn btn-primary" style="width:100%;justify-content:center;">
                             <i class="fab fa-whatsapp"></i> Enviar pelo WhatsApp
                         </button>
@@ -1416,6 +1420,7 @@
             </div>
         </div>
     </section>
+    </main>
 
     <!-- ===== FOOTER ===== -->
     <footer class="footer">
@@ -1463,7 +1468,7 @@
     </footer>
 
     <!-- ===== WHATSAPP FLOATING ===== -->
-    <a href="https://wa.me/555131058826?text=Quero%20agendar%20uma%20aula%20experimental!" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
+    <a href="https://wa.me/555131058826?text=Quero%20agendar%20uma%20aula%20experimental!" target="_blank" class="whatsapp-float" aria-label="WhatsApp" title="Fale conosco no WhatsApp">
         <i class="fab fa-whatsapp"></i>
         <span class="whatsapp-tooltip">Aula Grátis!</span>
     </a>
@@ -1559,9 +1564,10 @@
 
         // === Formulário WhatsApp ===
         function abrirWhatsApp() {
-            const nome = document.getElementById('formNome').value || '';
-            const zap = document.getElementById('formWhatsapp').value || '';
-            const msg = document.getElementById('formMsg').value || 'Quero agendar uma aula experimental!';
+            const nome = document.getElementById('formNome').value.trim();
+            const zap = document.getElementById('formWhatsapp').value.trim();
+            const msg = document.getElementById('formMsg').value.trim() || 'Quero agendar uma aula experimental!';
+            if (!nome) { alert('Por favor, preencha seu nome.'); return; }
             const texto = encodeURIComponent(`Olá! Me chamo ${nome}. ${msg} Meu WhatsApp: ${zap}`);
             window.open(`https://wa.me/555131058826?text=${texto}`, '_blank');
         }

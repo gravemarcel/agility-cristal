@@ -624,6 +624,15 @@
         .testimonials {
             background: #0a0a0a;
         }
+        .testimonial-card {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .testimonial-card.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
         .testimonials-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -913,7 +922,7 @@
                 grid-template-columns: repeat(2, 1fr);
             }
             .schedule-grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: 1fr 1fr;
             }
             .footer-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -1327,7 +1336,7 @@
                     </div>
                 </div>
                 <div class="contact-map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3454.283092043164!2d-51.2239683!3d-30.0301996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCsDAxJzQ4LjciUyA1McKwMTMnMjYuMyJX!5e0!3m2!1spt-BR!2sbr!4v1!4m5!3m6!1s0x951979e39e6b4f2b%3A0x3b8f5b0c5f6e0b0f!2sR.%20Dr.%20Campos%20Velho%2C%201130%20-%20Cristal%2C%20Porto%20Alegre%20-%20RS!8m2!3d-30.0301996!4d-51.2239683" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3453.0!2d-51.2421!3d-30.0853!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9519789ce7ae4027%3A0x6e003e97e451629f!2sAgility%20Cristal!5e0!3m2!1spt-BR!2sbr!4v1690000000000!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </div>
@@ -1447,7 +1456,7 @@
         });
 
         // === Scroll reveal animation (subtle enhancement) ===
-        const revealElements = document.querySelectorAll('.modality-card, .pricing-card, .schedule-day, .about-grid, .contact-grid');
+        const revealElements = document.querySelectorAll('.modality-card, .pricing-card, .schedule-day, .about-grid, .contact-grid, .testimonial-card');
         
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {

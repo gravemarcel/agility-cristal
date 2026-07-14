@@ -5,6 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Agility Cristal - CrossFit e Treinamento Funcional em Porto Alegre. R. Dr. Campos Velho, 1130 — Cristal, POA. Aceitamos Wellhub e TotalPass.">
     <title>Agility Cristal — CrossFit POA</title>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Agility Cristal",
+        "description": "Box de CrossFit e Treinamento Funcional no bairro Cristal, Porto Alegre. Aceitamos Wellhub e TotalPass.",
+        "image": "https://gravemarcel.github.io/agility-cristal/og-image.png",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "R. Dr. Campos Velho, 1130",
+            "addressLocality": "Porto Alegre",
+            "addressRegion": "RS",
+            "postalCode": "90880-000"
+        },
+        "telephone": "+555131058826",
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "-30.0853",
+            "longitude": "-51.2421"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5.0",
+            "bestRating": "5",
+            "reviewCount": "50"
+        },
+        "openingHoursSpecification": [
+            {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "06:00", "closes": "21:00"},
+            {"@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "06:00", "closes": "09:30"}
+        ],
+        "sameAs": [
+            "https://www.instagram.com/agility.cristal/"
+        ]
+    }
+    </script>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
@@ -116,6 +151,23 @@
             background: #1da851;
             transform: translateY(-2px);
             box-shadow: 0 10px 30px rgba(37,211,102,0.3);
+        }
+
+        /* ===== SKIP LINK ===== */
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 16px;
+            background: #ff4500;
+            color: #fff;
+            padding: 12px 20px;
+            z-index: 10000;
+            font-weight: 700;
+            border-radius: 0 0 4px 4px;
+            transition: top 0.3s;
+        }
+        .skip-link:focus {
+            top: 0;
         }
 
         /* ===== HEADER / NAV ===== */
@@ -702,8 +754,8 @@
         }
         .contact-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 24px;
         }
         .contact-info {
             display: flex;
@@ -744,6 +796,37 @@
             border-radius: 12px;
             overflow: hidden;
             border: 1px solid rgba(255,255,255,0.05);
+        }
+        .contact-form-wrapper {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 28px;
+        }
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 14px;
+            margin-bottom: 12px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 6px;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+            transition: border-color 0.3s;
+        }
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: #ff4500;
+        }
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+        .contact-form button {
+            margin-top: 8px;
         }
         .contact-map iframe {
             width: 100%;
@@ -910,7 +993,9 @@
         /* ===== RESPONSIVE ===== */
         @media (max-width: 992px) {
             .hero-grid,
-            .about-grid,
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
             .contact-grid {
                 grid-template-columns: 1fr;
             }
@@ -995,6 +1080,7 @@
     </style>
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Pular para o conteúdo</a>
 
     <!-- ===== HEADER ===== -->
     <header class="header" id="header">
@@ -1019,6 +1105,7 @@
 
     <!-- ===== HERO ===== -->
     <section class="hero" id="hero">
+    <div id="main-content"></div>
         <div class="container">
             <div class="hero-grid">
                 <div class="hero-content">
@@ -1094,7 +1181,7 @@
                 </div>
                 <div>
                     <div class="accent-line"></div>
-                    <h2>Sobre a<br>Agility Cristal</h2>
+                    <h2>Sobre a<br> Agility Cristal</h2>
                     <p>
                         Localizada no coração do bairro <strong>Cristal</strong>, em Porto Alegre, a <strong>Agility Cristal</strong> é mais que um box de CrossFit — é uma comunidade. Aqui cada treino é planejado pra te desafiar, independente do seu nível.
                     </p>
@@ -1335,6 +1422,17 @@
                         </a>
                     </div>
                 </div>
+                <div class="contact-form-wrapper">
+                    <form class="contact-form" action="https://formspree.io/f/xyz" method="POST">
+                        <h4 style="margin-bottom:16px;font-weight:600;">Mande sua mensagem</h4>
+                        <input type="text" name="nome" placeholder="Seu nome" required>
+                        <input type="tel" name="whatsapp" placeholder="WhatsApp (com DDD)" required>
+                        <textarea name="mensagem" placeholder="Quero agendar uma aula experimental!" rows="3"></textarea>
+                        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">
+                            <i class="fab fa-whatsapp"></i> Enviar
+                        </button>
+                    </form>
+                </div>
                 <div class="contact-map">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3453.0!2d-51.2421!3d-30.0853!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9519789ce7ae4027%3A0x6e003e97e451629f!2sAgility%20Cristal!5e0!3m2!1spt-BR!2sbr!4v1690000000000!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
@@ -1467,9 +1565,21 @@
         }, { threshold: 0.1 });
 
         revealElements.forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(el);
         });
+
+        // Trigger reveal on load for visible elements
+        setTimeout(() => {
+            revealElements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight) {
+                    el.classList.add('revealed');
+                }
+            });
+        }, 200);
     </script>
 </body>
 </html>
